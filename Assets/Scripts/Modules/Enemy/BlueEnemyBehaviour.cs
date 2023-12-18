@@ -58,7 +58,7 @@ namespace Modules.Enemy
                 
                 if (!PlayerInAttackRange())
                 {
-                    yield return new WaitForSeconds(2f);
+                    yield return new WaitForSeconds(1f);
                     continue;
                 }
                 
@@ -75,7 +75,7 @@ namespace Modules.Enemy
 
         private bool PlayerInAttackRange()
         {
-            const float attackRange = 3f;
+            const float attackRange = 5f;
             var distance = Vector3.Distance(transform.position, PlayerBehaviour.transform.position);
             return distance <= attackRange;
         }
