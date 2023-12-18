@@ -40,7 +40,6 @@ namespace Core.Game
 
             InitializePlayerBehaviour();
             EnemyController.StartSpawn();
-            Cursor.lockState = CursorLockMode.Locked;
             SubscribeEvents();
         }
         

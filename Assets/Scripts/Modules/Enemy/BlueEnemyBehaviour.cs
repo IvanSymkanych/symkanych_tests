@@ -21,11 +21,11 @@ namespace Modules.Enemy
         private NavMeshAgent _navMeshAgent;
         private Transform _playerTransform;
         private ArenaBehaviour _arenaBehaviour;
-        
+
         [Inject]
         public void Construct(
-            IGamePoolService gamePoolService, 
-            PlayerBehaviour playerBehaviour, 
+            IGamePoolService gamePoolService,
+            PlayerBehaviour playerBehaviour,
             ArenaBehaviour arenaBehaviour)
         {
             _pool = gamePoolService.BlueEnemyProjectilePool;
@@ -48,7 +48,7 @@ namespace Modules.Enemy
             _navMeshAgent.Warp(spawnPosition);
             _lifeCycleCoroutine = StartCoroutine(LifeCycle());
         }
-        
+
         private IEnumerator LifeCycle()
         {
             while (true)
@@ -63,14 +63,14 @@ namespace Modules.Enemy
                 {
                     yield return new WaitForSeconds(1f);
 
-                    if (!PlayerInAttackRange()) 
+                    if (!PlayerInAttackRange())
                         continue;
-                    
+
                     Attack();
                 }
             }
         }
-        
+
         protected override void Death(PlayerDamageType playerDamageType)
         {
             base.Death(playerDamageType);
@@ -82,7 +82,7 @@ namespace Modules.Enemy
             transform.LookAt(_playerTransform);
             _pool.Pool.Get().Shot(transform.position, transform.forward);
         }
-        
+
         private bool PlayerInAttackRange()
         {
             const float attackRange = 5f;

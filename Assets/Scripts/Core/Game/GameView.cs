@@ -71,6 +71,7 @@ namespace Core.Game
         {
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR
             mobileInputViewContainer.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
 #else 
            mobileInputViewContainer.SetActive(true);
 #endif
