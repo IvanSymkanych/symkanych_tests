@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Threading;
 using Core.Game;
 using Core.Game.Pools;
@@ -47,32 +48,41 @@ namespace Modules.Enemy
             _navMeshAgent.Warp(spawnPosition);
             _lifeCycleCoroutine = StartCoroutine(LifeCycle());
         }
-
+        
         private IEnumerator LifeCycle()
         {
             while (true)
             {
+                yield return new WaitForSeconds(1f);
+
                 var movePosition = _arenaBehaviour.GetRandomPositionInArena();
                 _navMeshAgent.SetDestination(movePosition);
                 yield return new WaitUntil(_navMeshAgent.ReachedDestinationOrGaveUp);
-                
-                if (!PlayerInAttackRange())
+
+                for (var i = 0; i < 3; i++)
                 {
                     yield return new WaitForSeconds(1f);
-                    continue;
+
+                    if (!PlayerInAttackRange()) 
+                        continue;
+                    
+                    Attack();
                 }
-                
-                transform.LookAt(_playerTransform);
-                _pool.Pool.Get().Shot(transform.position, transform.forward); ;
             }
         }
-
+        
         protected override void Death(PlayerDamageType playerDamageType)
         {
             base.Death(playerDamageType);
             StopCoroutine(_lifeCycleCoroutine);
         }
 
+        private void Attack()
+        {
+            transform.LookAt(_playerTransform);
+            _pool.Pool.Get().Shot(transform.position, transform.forward);
+        }
+        
         private bool PlayerInAttackRange()
         {
             const float attackRange = 5f;
