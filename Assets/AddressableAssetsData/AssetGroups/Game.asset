@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Game
+  m_EditorClassIdentifier: 
+  m_GroupName: Game
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 3dab1e32c134f2242aa9b426c89ef415
+  m_SerializeEntries:
+  - m_GUID: 5db5c7ec84cb9c94797417dba282ef97
+    m_Address: BlueEnemy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0303aa5171814641a944911675905d7
+    m_Address: RedEnemy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 502ace56e22657b4284d3566bafb85d8
+    m_Address: GameView
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73051eb4e7c4ea949bd72acca431ad6f
+    m_Address: PlayerProjectile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 328967c823bf75349b4481b2bfad6eb0
+    m_Address: BlueEnemyProjectile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 35705d380206402418abe47b67e0beba, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 54250da9198227a4fa8ae98086c46f1b, type: 2}
+    - {fileID: 11400000, guid: 3a0b3094ab080e04d919658535264994, type: 2}
